@@ -1,4 +1,4 @@
-// import moment from "moment";
+import moment from "moment";
 
 
 /**
@@ -6,7 +6,7 @@
  * @param type 반환 타입 결정
  * @return {string} 시간표시
  */
-export function currentTime(type){
+function currentTime(type){
     const date = new Date();
     const h = date.getHours();
     const m = date.getMinutes();
@@ -21,6 +21,17 @@ export function currentTime(type){
         default: return "입력값이 잘못되었습니다. 관리자에게 문의하세요";
     }
 }
-// export function currentTimeUsingMoment(){
-//     return moment().format("H:m:s");
-// }
+
+function currentTimeUsingMoment(){
+    return moment().format("H:m:s");
+}
+
+
+const dateTimeComponents = {
+    currentTime,
+    currentTimeUsingMoment,
+};
+module.exports = {
+    currentTime,
+    currentTimeUsingMoment,
+};
