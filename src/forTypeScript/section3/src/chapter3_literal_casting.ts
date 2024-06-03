@@ -61,3 +61,16 @@ let book2:Book = {
     price: 34_000,
     // skill: "react.js" 초과 프로퍼티 검사(typescript)
 }
+
+let book3:Book = react;
+//함수 인자로 전달하는 경우
+function func(book:Book){}
+// 직접 생성시 초과 프로퍼티 체크됨
+func({
+    title: "react 공부",
+    author: "홍길동",
+    price: 34_000,
+    // skill: "react.js" //초과 프로퍼티 검사(typescript)
+});
+//객체 변수를 직접 넣는 경우 가능
+func(react);
