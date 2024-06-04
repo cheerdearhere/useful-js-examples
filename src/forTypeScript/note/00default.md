@@ -7,3 +7,10 @@
 - `node dist/{javascript file}.js`: 자바스크립트 실행
 # II. 자료구조
 ![전체 타입](img/dataTypes.png)
+
+# III. 노트
+- section 1, 2는 기본 내용:  [Typescript handBook](https://www.typescriptlang.org/docs/handbook/intro.html)
+
+- [section3: 타입 호환성, 안정성](section03.md)
+
+- [section4: 함수타입](section04.md)
