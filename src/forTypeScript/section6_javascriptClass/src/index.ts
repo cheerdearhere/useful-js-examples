@@ -1,0 +1,1 @@
+console.log("chapter 6 javascript class");
