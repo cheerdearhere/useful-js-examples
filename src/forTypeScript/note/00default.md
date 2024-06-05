@@ -14,3 +14,9 @@
 - [section3: 타입 호환성, 안정성](section03.md)
 
 - [section4: 함수타입](section04.md)
+
+- [section5: 인터페이스](section05.md)
+
+- [section6: javascript class](section06.md)
+
+
