@@ -149,3 +149,96 @@ class ExecutiveOfficer extends Employee{
 }
 ```
 # III. typescript의 class 관련 기능
+## A. access modifier: 접근제어자
+- 필요한 이유: 외부에서 속성에 직접 접근해 변경 가능
+  - 데이터 무결성 위협될 수 있음
+```typescript
+const employee = new Employee("홍길동",27,"개발");
+employee.name="강감찬";
+employee.age=50;
+employee.position = "디자이너";
+```
+- 종류
+  - public: default. 
+  - private: 외부에서 접근 제한. 오직 class 내부 매서드로만 접근
+    - 파생 클래스에서도 불가
+  - protected: 파생클래스에서는 접근가능
+- 예시
+```typescript
+    private name: string;
+    protected age: number;
+    public position: string;
+    defaultNum: number;
+```
+- 클래스 외부에서 사용한 경우
+  - private, protected: 외부에서 접근 거부
+```typescript
+const employee = new Employee("홍길동",27,"개발", 10);
+// employee.name="강감찬";// priavte
+// employee.age=50;//protected
+employee.position = "디자이너";
+employee.defaultNum=20;
+```
+- 상속관계인 경우에는 protected 사용 가능
+```typescript
+class ExecutiveOfficer extends Employee{
+    officeNumber: number;
+    constructor(name:string,age:number,position:string,officeNumber:number,defaultNum:number) {
+        super(name,age,position,defaultNum);
+        this.officeNumber = officeNumber;
+    }
+    say(){
+        // console.log(this.name);//private은 불가
+        console.log(this.age);//protected는 가능
+        console.log(this.position);
+        console.log(this.officeNumber);
+        console.log(this.defaultNum);
+    }
+}
+```
+- 생성자에 접근제어자를 다는 경우 필드를 타입스크립트에서 직접 생성하므로 기존 필드는 제거한다
+```typescript
+
+class Employee2{
+  // private name: string;
+  // protected age: number;
+  // public position: string;
+  defaultNum: number;// default access modifier
+  constructor(private name:string, public age:number,protected position:string, defaultNum:number) {
+    this.name = name;
+    this.age = age;
+    this.position = position;
+    this.defaultNum = defaultNum;
+  }
+
+  work(){
+    console.log(`${this.name} working!!`);
+  }
+}
+```
+## B. 인터페이스와 클래스 함께 사용하기
+- interface를 구체화해서 class를 만들기
+- 키워드: `implements` 
+  - 인터페이스에서는 default access modifier(public)
+```typescript
+interface CharacterInterface{
+    name:string;
+    moveSpeed:number;
+  // private extra:string; 인터페이스에서는 무조건 public
+    move():void;
+}
+class Character implements CharacterInterface{
+  constructor(
+          public name:string,
+          public moveSpeed:number,
+          protected phoneNumber:string,//public 외 다른 접근제어자는 class에서
+          private extra:string
+  ) {
+    this.name = name;
+    this.moveSpeed = moveSpeed;
+  }
+    move(): void {
+        console.log()
+    }
+}
+```
