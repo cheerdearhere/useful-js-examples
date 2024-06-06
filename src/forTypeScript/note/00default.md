@@ -19,4 +19,4 @@
 
 - [section6: javascript class](section06.md)
 
-
+- [section7: generic](section07.md)
