@@ -10,30 +10,40 @@
         transpiler : 문법변환도구/ 최신 javascript 문법(응용포함)을 javascript로 변환시켜 적용시켜주는 도구
         JSX(확장언어), Typescript(SuperSet 언어)도 javascript 문법으로 변환시킴
     -->
+    <!--
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    -->
 </head>
 <body>
 
     <!-- root -->
     <div id="root"></div>
+    <!-- 직접 만든 app.js 사용 -->
+    <script src="dist/app.js"></script>
+    <!--
     <script type="text/babel">//바벨(transpiler)을 사용하는 영역임을 표기
         /*react with transpiler(JSX)*/
-        const App = () => <h1>Hello Babel</h1>;
+        // const App = () => <h1>Hello Babel</h1>;
     /*
     error message : transformScriptTags.ts:253 You are using the in-browser Babel transformer. Be sure to precompile your scripts for production - https://babeljs.io/docs/setup/
         - 성능 이슈로 변환시점을 컴파일 이전시점에서 진행하라는 메세지
         : babel/cli, babel/core - 바벨 실행을 위한 라이브러리
         : babel/preset-react - 변환시점을 컴팓일 이전에 진행
+        명령어   - npm install --save-dev @babel/cli
+                - npm install --save-dev @bable/core
+                - npm install --save-dev @babel/preset-react
+        바벨 설정: .babelrc 에서 설정
+        src 폴더에 App.js생성
     */
 
         /*react without transpiler*/
         //                 //React.createElement(HtmlElementTagName,propertiesOpt,ChildernElement);
         // const App = () => React.createElement('h1',null,'Hello react!!!');
 
-        ReactDOM.render(
-            React.createElement(App),       //react App
-            document.getElementById("root") //target Element
-        );
+        // ReactDOM.render(
+        //     React.createElement(App),       //react App
+        //     document.getElementById("root") //target Element
+        // );
 
         /*react with CRA */
         // const App = ()=> {
@@ -47,5 +57,6 @@
         //     </React.StrictMode>
         // );
     </script>
+    -->
 </body>
 </html>
